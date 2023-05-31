@@ -1,0 +1,8 @@
+{% block content %}
+    <h2>Products</h2>
+    <ul>
+        {% for product in products_list %}
+            <li>{{ product.name }}, {{ product.ref_id_expiry_date }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

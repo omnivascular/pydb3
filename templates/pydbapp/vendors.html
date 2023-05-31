@@ -1,0 +1,8 @@
+{% block content %}
+    <h2>Vendors</h2>
+    <ul>
+        {% for vendor in vendors_list %}
+            <li>{{ vendor.name }}, {{ vendor.id }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
