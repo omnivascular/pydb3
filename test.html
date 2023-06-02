@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inventory Management</title>
+    <!-- Include CSS and JavaScript dependencies -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="path/to/js/jquery.js"></script>
+    <script src="path/to/js/app.js"></script>
+
+</head>
+
+<body>
+    <h1>Inventory Management App</h1>
+
+    <div id="search-bar">
+        <!-- Search form for specific items or combinations -->
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-button">Search</button>
+    </div>
+
+    <table id="inventory-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through inventory items and populate table rows -->
+            {% for item in inventory %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>
+                    <!-- Form to update the quantity -->
+                    <form method="post" action="/update/{{ item.id }}">
+                        <input type="number" name="new_quantity" value="{{ item.quantity }}">
+                        <input type="submit" value="Update">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
